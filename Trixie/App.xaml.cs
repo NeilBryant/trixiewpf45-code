@@ -64,14 +64,26 @@ namespace Trixie
 				if ( args[1].Equals( "/u" ) )
 				{
 					// Unregister with COM
-					reg.UnregisterAssembly( asm );
-					Console.Write( "Trixeの登録を解除しました。" );
+					if ( reg.UnregisterAssembly( asm ) )
+					{
+						Console.Write( Trixie.Properties.Resources.Unregistered );
+					}
+					else
+					{
+						Console.Write( Trixie.Properties.Resources.UnregisterFail );
+					}
 				}
 				else if ( args[1].Equals( "/r" ) )
 				{
 					// Register with COM
-					reg.RegisterAssembly( asm , AssemblyRegistrationFlags.SetCodeBase );
-					Console.Write( "Trixieを登録しました。" );
+					if ( reg.RegisterAssembly( asm , AssemblyRegistrationFlags.SetCodeBase ) )
+					{
+						Console.Write( Trixie.Properties.Resources.Registered );
+					}
+					else
+					{
+						Console.Write( Trixie.Properties.Resources.RegisterFail );
+					}
 				}
 				Shutdown();
 				return;
@@ -80,33 +92,33 @@ namespace Trixie
 			Type installed = Type.GetTypeFromProgID( "Trixie.Bho" );
 			if ( installed != null )
 			{
-				var result = MessageBox.Show( "Trixieの登録を解除します" , "Trixie" , MessageBoxButton.YesNo );
+				var result = MessageBox.Show( Trixie.Properties.Resources.Unregistering , "Trixie" , MessageBoxButton.YesNo );
 				if ( result == MessageBoxResult.Yes )
 				{
 					// Unregister with COM
 					if ( reg.UnregisterAssembly( asm ) )
 					{
-						MessageBox.Show( "Trixieの登録解除をしました" );
+						MessageBox.Show( Trixie.Properties.Resources.Unregistered );
 					}
 					else
 					{
-						MessageBox.Show( "Trixieの登録解除に失敗しました" );
+						MessageBox.Show( Trixie.Properties.Resources.UnregisterFail );
 					}
 				}
 			}
 			else
 			{
-				var result = MessageBox.Show( "Trixieを登録します" , "Trixie" , MessageBoxButton.YesNo );
+				var result = MessageBox.Show( Trixie.Properties.Resources.Registering , "Trixie" , MessageBoxButton.YesNo );
 				if ( result == MessageBoxResult.Yes )
 				{
 					// Register with COM
 					if ( reg.RegisterAssembly( asm , AssemblyRegistrationFlags.SetCodeBase ) )
 					{
-						MessageBox.Show( "Trixieの登録をしました" );
+						MessageBox.Show( Trixie.Properties.Resources.Registered );
 					}
 					else
 					{
-						MessageBox.Show( "Trixieの登録に失敗しました" );
+						MessageBox.Show( Trixie.Properties.Resources.RegisterFail );
 					}
 				}
 			}

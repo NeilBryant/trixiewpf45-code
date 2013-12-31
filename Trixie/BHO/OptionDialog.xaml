@@ -22,10 +22,16 @@
 <Window x:Class="Trixie.OptionDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:props="clr-namespace:Trixie.Properties"
         xmlns:app="clr-namespace:Trixie"
-		Title="{Binding Source={x:Static app:App.UserAgent} , StringFormat=ユーザースクリプトの管理 - \{0\}}"
         Height="400" Width="600"
         >
+    <Window.Title>
+        <MultiBinding StringFormat="{}{0} - {1}">
+            <Binding Source="{x:Static props:Resources.OptionWinTitle}" />
+            <Binding Source="{x:Static app:App.UserAgent}" />
+        </MultiBinding>
+    </Window.Title>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
