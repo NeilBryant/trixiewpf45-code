@@ -82,6 +82,7 @@
     <Compile Include="MVVM\DelegateCommand.cs" />
     <Compile Include="MVVM\ExpandoSerializer.cs" />
     <Compile Include="MVVM\MvvmUtil.cs" />
+    <Compile Include="MVVM\Translator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -96,7 +97,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
+      <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.manifest" />
@@ -133,6 +134,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Localizer.xml" />
     <Content Include="Scripts\GoogleDeLink.user.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

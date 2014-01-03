@@ -25,6 +25,8 @@ using System.Windows;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 
+using Mizutama.Lib.MVVM;
+
 namespace Trixie
 {
 	/// <summary>
@@ -39,6 +41,14 @@ namespace Trixie
 
 		public OptionDialog( Bho trixie )
 		{
+			if ( TranslationManager.Instance.TranslationProvider == null )
+			{
+				// setup Translator because COM is created without calling App.OnStartup()
+				var xml = Trixie.Properties.Resources.Localizer;
+				var tx = new XmlTranslationProvider( xml );
+				TranslationManager.Instance.TranslationProvider = tx;
+			}
+
 			Settings = new ObservableCollection<ScriptSetting>();
 			mTrixie = trixie;
 

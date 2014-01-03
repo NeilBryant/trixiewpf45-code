@@ -24,6 +24,8 @@ using System.Windows;
 using System.Runtime.InteropServices;
 using System.Reflection;
 
+using Mizutama.Lib.MVVM;
+
 namespace Trixie
 {
 	/// <summary>
@@ -55,6 +57,15 @@ namespace Trixie
 		/// <param name="e"></param>
 		private void OnStartup( object sender , StartupEventArgs e )
 		{
+			if ( TranslationManager.Instance.TranslationProvider == null )
+			{
+				// setup Translator
+				var xml = Trixie.Properties.Resources.Localizer;
+				var tx = new XmlTranslationProvider( xml );
+				TranslationManager.Instance.TranslationProvider = tx;
+			}
+
+			// Register
 			Assembly asm = Assembly.GetExecutingAssembly();
 			RegistrationServices reg = new RegistrationServices();
 
@@ -66,11 +77,11 @@ namespace Trixie
 					// Unregister with COM
 					if ( reg.UnregisterAssembly( asm ) )
 					{
-						Console.Write( Trixie.Properties.Resources.Unregistered );
+						Console.Write( TranslationManager.Instance.Translate( "Unregistered" ) );
 					}
 					else
 					{
-						Console.Write( Trixie.Properties.Resources.UnregisterFail );
+						Console.Write( TranslationManager.Instance.Translate( "UnregisterFail" ) );
 					}
 				}
 				else if ( args[1].Equals( "/r" ) )
@@ -78,11 +89,11 @@ namespace Trixie
 					// Register with COM
 					if ( reg.RegisterAssembly( asm , AssemblyRegistrationFlags.SetCodeBase ) )
 					{
-						Console.Write( Trixie.Properties.Resources.Registered );
+						Console.Write( TranslationManager.Instance.Translate( "Registered" ) );
 					}
 					else
 					{
-						Console.Write( Trixie.Properties.Resources.RegisterFail );
+						Console.Write( TranslationManager.Instance.Translate( "RegisterFail" ) );
 					}
 				}
 				Shutdown();
@@ -92,33 +103,33 @@ namespace Trixie
 			Type installed = Type.GetTypeFromProgID( "Trixie.Bho" );
 			if ( installed != null )
 			{
-				var result = MessageBox.Show( Trixie.Properties.Resources.Unregistering , "Trixie" , MessageBoxButton.YesNo );
+				var result = MessageBox.Show( (string)TranslationManager.Instance.Translate( "Unregistering" ) , "Trixie" , MessageBoxButton.YesNo );
 				if ( result == MessageBoxResult.Yes )
 				{
 					// Unregister with COM
 					if ( reg.UnregisterAssembly( asm ) )
 					{
-						MessageBox.Show( Trixie.Properties.Resources.Unregistered );
+						MessageBox.Show( (string)TranslationManager.Instance.Translate( "Unregistered" ) , "Trixie" );
 					}
 					else
 					{
-						MessageBox.Show( Trixie.Properties.Resources.UnregisterFail );
+						MessageBox.Show( (string)TranslationManager.Instance.Translate( "UnregisterFail" ) , "Trixie" );
 					}
 				}
 			}
 			else
 			{
-				var result = MessageBox.Show( Trixie.Properties.Resources.Registering , "Trixie" , MessageBoxButton.YesNo );
+				var result = MessageBox.Show( (string)TranslationManager.Instance.Translate( "Registering" ) , "Trixie" , MessageBoxButton.YesNo );
 				if ( result == MessageBoxResult.Yes )
 				{
 					// Register with COM
 					if ( reg.RegisterAssembly( asm , AssemblyRegistrationFlags.SetCodeBase ) )
 					{
-						MessageBox.Show( Trixie.Properties.Resources.Registered );
+						MessageBox.Show( (string)TranslationManager.Instance.Translate( "Registered" ) , "Trixie" );
 					}
 					else
 					{
-						MessageBox.Show( Trixie.Properties.Resources.RegisterFail );
+						MessageBox.Show( (string)TranslationManager.Instance.Translate( "RegisterFail" ) , "Trixie" );
 					}
 				}
 			}

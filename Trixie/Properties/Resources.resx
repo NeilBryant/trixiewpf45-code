@@ -117,25 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="OptionWinTitle" xml:space="preserve">
-    <value>Managing User Scripts</value>
-  </data>
-  <data name="Registered" xml:space="preserve">
-    <value>Trixie has been registered.</value>
-  </data>
-  <data name="RegisterFail" xml:space="preserve">
-    <value>Trixie could not been registered.</value>
-  </data>
-  <data name="Registering" xml:space="preserve">
-    <value>Trixie will be registered.</value>
-  </data>
-  <data name="Unregistered" xml:space="preserve">
-    <value>Trixie has been unregistered.</value>
-  </data>
-  <data name="UnregisterFail" xml:space="preserve">
-    <value>Trixie could not been unregistered.</value>
-  </data>
-  <data name="Unregistering" xml:space="preserve">
-    <value>Trixie will be unregistered.</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Localizer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Localizer.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

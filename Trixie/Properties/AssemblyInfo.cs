@@ -67,7 +67,7 @@ using System.Windows;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion( "0.1.2.0" )]
+[assembly: AssemblyVersion( "0.1.3.0" )]
 //[assembly: AssemblyFileVersion( "1.0.0.0" )]
 
 // アセンブリカスタム属性にビルド時の構成を埋め込む

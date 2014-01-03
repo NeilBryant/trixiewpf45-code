@@ -22,7 +22,7 @@ namespace Trixie.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Trixie.Properties {
         ///   このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Trixie.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Trixie.Properties {
         ///   現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,65 +61,25 @@ namespace Trixie.Properties {
         }
         
         /// <summary>
-        ///   Managing User Scripts に類似しているローカライズされた文字列を検索します。
+        ///   &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;Strings&gt;
+        ///  &lt;Item Key=&quot;Registering&quot;&gt;
+        ///    &lt;String&gt;Trixie will be registered.&lt;/String&gt;
+        ///    &lt;String Language=&quot;ja-JP&quot;&gt;Trixieを登録します。&lt;/String&gt;
+        ///  &lt;/Item&gt;
+        ///  &lt;Item Key=&quot;Registered&quot;&gt;
+        ///    &lt;String&gt;Trixie has been registered.&lt;/String&gt;
+        ///    &lt;String Language=&quot;ja-JP&quot;&gt;Trixieを登録しました。&lt;/String&gt;
+        ///  &lt;/Item&gt;
+        ///  &lt;Item Key=&quot;RegisterFail&quot;&gt;
+        ///    &lt;String&gt;Trixie could not been registered.&lt;/String&gt;
+        ///    &lt;String Language=&quot;ja-JP&quot;&gt;Trixieを登録できませんでした。&lt;/String&gt;
+        ///  &lt;/Item&gt;
+        ///  &lt;Item Key=&quot;Unregister [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        public static string OptionWinTitle {
+        internal static string Localizer {
             get {
-                return ResourceManager.GetString("OptionWinTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Trixie has been registered. に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string Registered {
-            get {
-                return ResourceManager.GetString("Registered", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Trixie could not been registered. に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string RegisterFail {
-            get {
-                return ResourceManager.GetString("RegisterFail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Trixie will be registered. に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string Registering {
-            get {
-                return ResourceManager.GetString("Registering", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Trixie has been unregistered. に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string Unregistered {
-            get {
-                return ResourceManager.GetString("Unregistered", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Trixie could not been unregistered. に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string UnregisterFail {
-            get {
-                return ResourceManager.GetString("UnregisterFail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Trixie will be unregistered. に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string Unregistering {
-            get {
-                return ResourceManager.GetString("Unregistering", resourceCulture);
+                return ResourceManager.GetString("Localizer", resourceCulture);
             }
         }
     }
